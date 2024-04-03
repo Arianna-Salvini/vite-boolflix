@@ -15,9 +15,16 @@ export default {
 
 <template>
     <div class="container">
-        <input type="text" v-model="movieSearch" placeholder="Inserisci il titolo del film">
-        <button class="search_btn" @click="getMovie">Cerca</button>
+        <!-- Creare un layout base con una searchbar (una input e un button) -->
+        <div class="nav">
+            <input type="text" v-model="state.movieSearch" placeholder="Inserisci il titolo del film">
+            <button class="search_btn" @click="state.getMovies">Cerca</button>
+        </div>
     </div>
 </template>
 
-<style></style>
+<style>
+.nav {
+    min-height: 100px;
+}
+</style>
