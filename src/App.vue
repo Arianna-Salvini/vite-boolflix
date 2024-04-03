@@ -1,13 +1,22 @@
 <script>
 
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
+
 export default {
-  name: 'app',
+  name: 'App',
+  components: {
+
+    AppHeader,
+    AppMain,
+    AppFooter,
+  }
 }
 
 </script>
 
 <template>
-  <h1>Boolflix</h1>
 </template>
 
 <style></style>
