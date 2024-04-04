@@ -8,9 +8,10 @@ export const state = reactive({
 
     getMovies() {
         axios
+            // ajax call 
             .get(`https://api.themoviedb.org/3/search/movie?query=${this.movieSearch}&api_key=${this.api_key}&language=it_IT`)
             .then(response => {
-                //  filtro i film in base alla ricerca
+                //  filter movies based on the digit typer in searchbar/mivieSearch and put in movie array
                 let searchLowercase = this.movieSearch.toLocaleLowerCase()
                 if (searchLowercase === '') {
                     this.movies = response.data.results
@@ -20,6 +21,11 @@ export const state = reactive({
                     })
                 }
             })
+            .catch(error => {
+                console.log(error)
+                console.error(error.message);
+            })
+        // clean searchbar
         this.movieSearch = ''
     }
 })
