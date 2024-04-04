@@ -1,7 +1,6 @@
 <script>
 
 import { state } from '../state.js'
-import FlagUrl from './FlagUrl.vue'
 
 export default {
     name: 'AppMain',
@@ -10,9 +9,6 @@ export default {
         return {
             state,
         }
-    },
-    components: {
-        FlagUrl,
     }
 }
 </script>
@@ -25,9 +21,7 @@ export default {
                 <h2>{{ movie.title }}</h2>
                 <h4>{{ movie.original_title }}</h4>
                 <!-- change originallanguage with relative flags -->
-                <div class="language">
-                    <FlagUrl :languageType="movie.original_language" :flagUrl="getFlagUrl(movie.original_language)" />
-                </div>
+                <span class="fi fi-{{movie.original_language}}"></span>
                 <div class="rating"> {{ movie.vote_average }}</div>
             </li>
         </ul>
