@@ -23,27 +23,4 @@ export const state = reactive({
         // clean searchbar
         this.textSearch = ''
     },
-
-    // getMovies() {
-    //     axios
-    //         // ajax call 
-    //         .get(`https://api.themoviedb.org/3/search/movie?query=${this.textSearch}&api_key=${this.api_key}&language=it_IT`)
-    //         .then(response => {
-    //             //  filter movies based on the digit typer in searchbar/mivieSearch and put in movie array
-    //             let searchLowercase = this.textSearch.toLocaleLowerCase()
-    //             if (searchLowercase === '') {
-    //                 this.movies = response.data.results
-    //             } else {
-    //                 this.movies = response.data.results.filter(movie => {
-    //                     return movie.title.toLowerCase().includes(searchLowercase)
-    //                 })
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //             console.error(error.message);
-    //         })
-    //     // clean searchbar
-    //     this.textSearch = ''
-    // },
 })
