@@ -131,12 +131,13 @@ export default {
     <!-- Results of research -->
     <div class="container">
         <ul>
-            <li v-for="(movie, index) in state.movies" :key="index">
+            <li v-for="(movie, index) in     state.movies    " :key="index">
                 <h2>{{ movie.title }}</h2>
                 <h4>{{ movie.original_title }}</h4>
                 <!-- change originallanguage with relative flags -->
                 <span v-if="languageToCountry[movie.original_language]"
-                    class="fi fi-{{languageToCountry[movie.original_language]}} flag-icon-squared"></span>
+                    :class="'fi fi-' + languageToCountry[movie.original_language]">
+                </span>
                 <div class="rating"> {{ movie.vote_average }}</div>
             </li>
         </ul>
