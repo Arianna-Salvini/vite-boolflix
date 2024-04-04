@@ -130,17 +130,38 @@ export default {
 <template>
     <!-- Results of research -->
     <div class="container">
-        <ul>
-            <li v-for="(movie, index) in     state.movies    " :key="index">
-                <h2>{{ movie.title }}</h2>
-                <h4>{{ movie.original_title }}</h4>
-                <!-- change originallanguage with relative flags -->
-                <span v-if="languageToCountry[movie.original_language]"
-                    :class="'fi fi-' + languageToCountry[movie.original_language]">
-                </span>
-                <div class="rating"> {{ movie.vote_average }}</div>
-            </li>
-        </ul>
+        <div class="movies">
+            <ul>
+                <h2>Movies</h2>
+                <li v-for="(movie, index) in state.movies">
+                    <h3>{{ movie.title }}</h3>
+                    <h4>{{ movie.original_title }}</h4>
+                    <!-- change originallanguage with relative flags -->
+                    <span v-if="languageToCountry[movie.original_language]"
+                        :class="'fi fi-' + languageToCountry[movie.original_language]">
+                    </span>
+                    <div class="rating"> {{ movie.vote_average }}</div>
+                </li>
+            </ul>
+        </div>
+        <!-- /.movies -->
+
+        <div class="series">
+            <ul>
+                <h2>Series</h2>
+                <li v-for="(serie, index) in state.series">
+                    <h3>{{ serie.name }}</h3>
+                    <h4>{{ serie.original_name }}</h4>
+                    <!-- change originallanguage with relative flags -->
+                    <span v-if="languageToCountry[serie.original_language]"
+                        :class="'fi fi-' + languageToCountry[serie.original_language]">
+                    </span>
+                    <div class="rating"> {{ serie.vote_average }}</div>
+                </li>
+            </ul>
+        </div>
+        <!-- /.series -->
+
     </div>
 </template>
 
