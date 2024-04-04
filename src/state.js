@@ -12,28 +12,10 @@ export const state = reactive({
             // ajax call 
             .get(`https://api.themoviedb.org/3/search/multi?api_key=${this.api_key}&language=it_IT&query=${this.textSearch}`)
             .then(response => {
-                let searchLowercase = this.textSearch.toLocaleLowerCase()
-                if (searchLowercase !== '') {
-                    response.data.results.forEach(media => {
-                        if (media.media_type === 'movie' || media.media_type === 'tv') {
-                            if (media.media_type === 'movie') {
-                                this.movies.push(media)
-                            } else if (media.media_type === 'tv') {
-                                this.series.push(media)
-                            }
-                        }
-
-                    });
-                }
+                this.movies = response.data.results.filter(result => result.media_type === 'movie')
+                this.series = response.data.results.filter(result => result.media_type === 'tv')
+                // console.log(this.movies, this.series);
             })
-
-            // // Second try
-
-            // .then(response => {
-            //     this.movies = response.data.result.filter(result => result.media_type === 'movie')
-            //     this.series = response.data.result.filter(result => result.media_type === 'tv')
-            // },
-
             .catch(error => {
                 console.log(error)
                 console.error(error.message);
