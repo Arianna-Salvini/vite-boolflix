@@ -157,6 +157,13 @@ export default {
                         </span>
                     </div>
 
+                    <!-- Aggiungere l' overview -->
+                    <div class="overview">
+                        <strong class="overview_title">Overview</strong>
+                        <br>
+                        {{ movie.overview }}
+                    </div>
+
                 </div>
 
             </div>
@@ -189,6 +196,13 @@ export default {
                             <i v-if="i <= serie.rating" class="fas fa-star"></i>
                             <i v-else class="far fa-star"></i>
                         </span>
+                    </div>
+
+                    <!-- Aggiungere l' overview -->
+                    <div class="overview">
+                        <strong class="overview_title">Overview</strong>
+                        <br>
+                        {{ serie.overview }}
                     </div>
                 </div>
             </div>
@@ -241,6 +255,16 @@ export default {
 
                 & h3 {
                     font-size: 1.3rem;
+                }
+
+                .overview {
+                    font-size: 0.9rem;
+                    line-height: 1.3rem;
+
+                    .overview_title {
+                        font-size: 1.1rem;
+                        line-height: 1.7rem;
+                    }
                 }
             }
 
