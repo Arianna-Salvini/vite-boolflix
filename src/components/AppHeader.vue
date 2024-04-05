@@ -54,7 +54,7 @@ export default {
         color: #ffffff;
         background-color: #44444476;
         border: 2px solid #333333;
-
+        box-shadow: inset 0 0 1rem #00000080;
     }
 
     .nav_right>input {
