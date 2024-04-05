@@ -120,10 +120,9 @@ export default {
                 wls: "wf",
                 lem: "mw",
                 hy: "am",
-            }
-
+            },
         }
-    }
+    },
 }
 
 </script>
@@ -131,19 +130,25 @@ export default {
 <template>
     <!-- Results of research -->
     <div class="container">
-        <div class="movies">
-            <ul>
-                <h2>Movies</h2>
 
-                <li v-for="(movie, index) in state.movies">
-                    <img :src="`https://image.tmdb.org/t/p/w342` + movie.poster_path" alt="Poster"
-                        v-if="movie.poster_path">
+        <h2>Movies</h2>
+        <section class="movies">
+
+            <!-- Card Movie -->
+            <div v-for="(movie, index) in state.movies" :key="index" class="card">
+                <img class="poster_card" :src="`https://image.tmdb.org/t/p/w342` + movie.poster_path" alt="Poster"
+                    v-if="movie.poster_path">
+
+                <!-- Info visibili con l'over -->
+                <div class="card_info">
                     <h3>{{ movie.title }}</h3>
                     <h4>{{ movie.original_title }}</h4>
+
                     <!-- change originallanguage with relative flags -->
                     <div v-if="languageToCountry[movie.original_language]"
                         :class="'fi fi-' + languageToCountry[movie.original_language]">
                     </div>
+
                     <!-- Trasformare il voto da 1 -10 a 1-5 e aggiungere le stelline -->
                     <div class="rating">
                         <span v-for="i in 5">
@@ -152,34 +157,42 @@ export default {
                         </span>
                     </div>
 
-                </li>
-            </ul>
-        </div>
+                </div>
+
+            </div>
+        </section>
         <!-- /.movies -->
 
-        <div class="series">
-            <ul>
-                <h2>Series</h2>
-                <li v-for="(serie, index) in state.series">
-                    <img :src="`https://image.tmdb.org/t/p/w342` + serie.poster_path" alt="Poster"
-                        v-if="serie.poster_path">
+        <h2>Series</h2>
+        <section class="series">
+
+            <!-- Card Series -->
+            <div v-for="(serie, index) in state.series" :key="index" class="card">
+
+                <!-- visalizzazione del solo poster per la card fino all'over -->
+                <img class="poster_card" :src="`https://image.tmdb.org/t/p/w342` + serie.poster_path" alt="Poster"
+                    v-if="serie.poster_path">
+
+                <!-- Info visibili con l'over -->
+                <div class="card_info">
                     <h3>{{ serie.name }}</h3>
                     <h4>{{ serie.original_name }}</h4>
+
                     <!-- change originallanguage with relative flags -->
                     <div v-if="languageToCountry[serie.original_language]"
                         :class="'fi fi-' + languageToCountry[serie.original_language]">
                     </div>
                     <div class="rating">
-                        <!-- Trasformare il voto da 1 -10 a 1-5 e aggiungere le stelline -->
+
+                        <!-- Trasformare il voto da 1 -10 a 1-5 e aggiungere le steldivne -->
                         <span v-for="i in 5">
                             <i v-if="i <= serie.rating" class="fas fa-star"></i>
                             <i v-else class="far fa-star"></i>
                         </span>
                     </div>
-
-                </li>
-            </ul>
-        </div>
+                </div>
+            </div>
+        </section>
         <!-- /.series -->
 
     </div>
@@ -187,6 +200,41 @@ export default {
 
 <style>
 .container {
-    margin-top: 4rem;
+    margin-top: 3rem;
+
+    & h2 {
+        padding-top: 2rem;
+        font-size: 1.6rem;
+        display: block;
+    }
+
+    & section {
+        padding: 2rem;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+        .card {
+            position: relative;
+
+            .poster_card {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .card_info {
+                width: 100%;
+                height: 100%;
+                background-color: #00000070;
+                color: #ffffff;
+                padding: 0.8rem;
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+        }
+    }
 }
 </style>
