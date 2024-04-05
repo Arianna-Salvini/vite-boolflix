@@ -235,16 +235,18 @@ export default {
             border: 1px solid #333333;
 
             .poster_card {
+                width: 342px;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
                 position: relative;
-                overflow: hidden;
                 /* transizione più fluida */
                 transition: transform 0.8s ease-in-out;
                 z-index: 1;
-
             }
 
             .card_info {
-                width: 100%;
+                width: 342px;
                 height: 100%;
                 color: #ffffff;
                 background-color: #00000070;
