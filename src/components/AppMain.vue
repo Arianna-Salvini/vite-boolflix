@@ -141,10 +141,17 @@ export default {
                     <h3>{{ movie.title }}</h3>
                     <h4>{{ movie.original_title }}</h4>
                     <!-- change originallanguage with relative flags -->
-                    <span v-if="languageToCountry[movie.original_language]"
+                    <div v-if="languageToCountry[movie.original_language]"
                         :class="'fi fi-' + languageToCountry[movie.original_language]">
-                    </span>
-                    <div class="rating"> {{ movie.vote_average }}</div>
+                    </div>
+                    <!-- Trasformare il voto da 1 -10 a 1-5 e aggiungere le stelline -->
+                    <div class="rating">
+                        <span v-for="i in 5">
+                            <i v-if="i <= movie.rating" class="fas fa-star"></i>
+                            <i v-else class="far fa-star"></i>
+                        </span>
+                    </div>
+
                 </li>
             </ul>
         </div>
@@ -159,10 +166,17 @@ export default {
                     <h3>{{ serie.name }}</h3>
                     <h4>{{ serie.original_name }}</h4>
                     <!-- change originallanguage with relative flags -->
-                    <span v-if="languageToCountry[serie.original_language]"
+                    <div v-if="languageToCountry[serie.original_language]"
                         :class="'fi fi-' + languageToCountry[serie.original_language]">
-                    </span>
-                    <div class="rating"> {{ serie.vote_average }}</div>
+                    </div>
+                    <div class="rating">
+                        <!-- Trasformare il voto da 1 -10 a 1-5 e aggiungere le stelline -->
+                        <span v-for="i in 5">
+                            <i v-if="i <= serie.rating" class="fas fa-star"></i>
+                            <i v-else class="far fa-star"></i>
+                        </span>
+                    </div>
+
                 </li>
             </ul>
         </div>

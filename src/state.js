@@ -15,6 +15,18 @@ export const state = reactive({
                 this.movies = response.data.results.filter(result => result.media_type === 'movie')
                 this.series = response.data.results.filter(result => result.media_type === 'tv')
                 // console.log(this.movies, this.series);
+
+                // Calcolo rating movie
+                this.movies.forEach(movie => {
+                    movie.rating = this.ratingCalc(movie.vote_average)
+                    console.log(movie.rating)
+                })
+
+                // Calcolo rating series
+                this.series.forEach(serie => {
+                    serie.rating = this.ratingCalc(serie.vote_average)
+                    console.log(serie.rating);
+                })
             })
             .catch(error => {
                 console.log(error)
@@ -23,4 +35,10 @@ export const state = reactive({
         // clean searchbar
         this.textSearch = ''
     },
+
+    // Calcolare il rating da 1 a 5 al posto del rating da 1 a 10
+    ratingCalc(voteAverage) {
+        return Math.round(voteAverage / 2)
+    }
+
 })
