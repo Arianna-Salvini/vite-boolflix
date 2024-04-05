@@ -234,6 +234,8 @@ export default {
             .poster_card {
                 position: relative;
                 overflow: hidden;
+                /* transizione più fluida */
+                transition: transform 0.5s ease-in-out;
             }
 
             .card_info {
@@ -244,10 +246,14 @@ export default {
                 padding-left: 1.5rem;
                 padding: 0.8rem;
                 opacity: 0;
+                overflow: auto;
                 position: absolute;
                 top: 0;
                 left: 0;
                 display: none;
+                /* transizione più fluida */
+                transition: opacity 0.5s ease-in-out, trasform 0.3s ease-in-out;
+                transform: translateY(100%);
 
                 &>* {
                     margin: 0.5rem 1rem;
@@ -271,8 +277,11 @@ export default {
             &:hover .card_info {
                 display: block;
                 background-color: #000000af;
-                border: 3px inset #888888;
+                border: 2px inset #888888;
                 opacity: 1;
+                transform: translateY(0%);
+                box-shadow: 0 1rem 2rem #00000066;
+
             }
 
         }
