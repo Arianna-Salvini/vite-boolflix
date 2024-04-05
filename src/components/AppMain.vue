@@ -214,10 +214,10 @@ export default {
 
 <style>
 .container {
-    margin-top: 3rem;
+    margin: 3rem 1rem;
 
     & h2 {
-        padding-top: 2rem;
+        padding: 2rem 1rem 0;
         font-size: 1.6rem;
         display: block;
     }
@@ -230,12 +230,17 @@ export default {
 
         .card {
             position: relative;
+            /* Aggiungo tridimensionalità */
+            perspective: 1000px;
+            border: 1px solid #333333;
 
             .poster_card {
                 position: relative;
                 overflow: hidden;
                 /* transizione più fluida */
-                transition: transform 0.5s ease-in-out;
+                transition: transform 0.8s ease-in-out;
+                z-index: 1;
+
             }
 
             .card_info {
@@ -251,9 +256,11 @@ export default {
                 top: 0;
                 left: 0;
                 display: none;
+
                 /* transizione più fluida */
-                transition: opacity 0.5s ease-in-out, trasform 0.3s ease-in-out;
+                transition: opacity 0.8s ease-in-out, trasform 0.8s ease-in-out;
                 transform: translateY(100%);
+                transform-origin: bottom;
 
                 &>* {
                     margin: 0.5rem 1rem;
@@ -281,9 +288,13 @@ export default {
                 opacity: 1;
                 transform: translateY(0%);
                 box-shadow: 0 1rem 2rem #00000066;
-
+                z-index: 3;
             }
 
+            &:hover .poster_card {
+                transform: scale(1.01);
+                z-index: 2;
+            }
         }
     }
 }
