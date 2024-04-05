@@ -32,6 +32,7 @@ export const state = reactive({
                 console.log(error)
                 console.error(error.message);
             })
+
         // clean searchbar
         this.textSearch = ''
     },

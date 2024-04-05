@@ -1,7 +1,18 @@
+:root {
+    -bflix-primary-light: #ffcccc;
+    -bflix-primary-dark: #ff6666;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-image: radial-gradient(circle, #444444, #222222);
+    color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .fi {

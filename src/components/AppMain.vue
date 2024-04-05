@@ -185,4 +185,8 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style>
+.container {
+    margin-top: 4rem;
+}
+</style>
