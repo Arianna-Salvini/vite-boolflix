@@ -278,4 +278,23 @@ export default {
         }
     }
 }
+
+/* Scroolbar */
+
+::-webkit-scrollbar {
+    width: 0.1rem;
+    background-color: #333333;
+
+}
+
+::-webkit-scrollbar-track {
+    background: #333333;
+    box-shadow: inset 0 0 1rem #000000, 0 0 1rem #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 1px solid #222222;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0.5rem 0.1rem #333333;
+}
 </style>
