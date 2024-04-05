@@ -118,7 +118,8 @@ export default {
                 tvl: "tv",
                 niu: "nu",
                 wls: "wf",
-                lem: "mw"
+                lem: "mw",
+                hy: "am",
             }
 
         }
@@ -133,7 +134,10 @@ export default {
         <div class="movies">
             <ul>
                 <h2>Movies</h2>
+
                 <li v-for="(movie, index) in state.movies">
+                    <img :src="`https://image.tmdb.org/t/p/w342` + movie.poster_path" alt="Poster"
+                        v-if="movie.poster_path">
                     <h3>{{ movie.title }}</h3>
                     <h4>{{ movie.original_title }}</h4>
                     <!-- change originallanguage with relative flags -->
@@ -150,6 +154,8 @@ export default {
             <ul>
                 <h2>Series</h2>
                 <li v-for="(serie, index) in state.series">
+                    <img :src="`https://image.tmdb.org/t/p/w342` + serie.poster_path" alt="Poster"
+                        v-if="serie.poster_path">
                     <h3>{{ serie.name }}</h3>
                     <h4>{{ serie.original_name }}</h4>
                     <!-- change originallanguage with relative flags -->
