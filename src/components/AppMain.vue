@@ -179,7 +179,7 @@ export default {
                     <h4>{{ serie.original_name }}</h4>
 
                     <!-- change originallanguage with relative flags -->
-                    <div v-if="languageToCountry[serie.original_language]"
+                    <div class="flag" v-if="languageToCountry[serie.original_language]"
                         :class="'fi fi-' + languageToCountry[serie.original_language]">
                     </div>
                     <div class="rating">
@@ -225,13 +225,30 @@ export default {
             .card_info {
                 width: 100%;
                 height: 100%;
-                background-color: #00000070;
                 color: #ffffff;
+                background-color: #00000070;
+                padding-left: 1.5rem;
                 padding: 0.8rem;
                 opacity: 0;
                 position: absolute;
                 top: 0;
                 left: 0;
+                display: none;
+
+                &>* {
+                    margin: 0.5rem 1rem;
+                }
+
+                & h3 {
+                    font-size: 1.3rem;
+                }
+            }
+
+            &:hover .card_info {
+                display: block;
+                background-color: #000000af;
+                border: 3px inset #888888;
+                opacity: 1;
             }
 
         }
